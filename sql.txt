@@ -1,0 +1,29 @@
+create schema netology;
+
+drop table netology.persons;
+
+create table netology.persons(
+    name text,
+    surname text,
+    age int,
+    phone_number text,
+    citi_of_living text,
+    PRIMARY KEY (name, surname, age)
+);
+
+insert into netology.persons
+    (name, surname, age, phone_number, citi_of_living)
+values
+    ('Семен','Семёнов', 35, 79054566544, 'Moscow'),
+    ('Иван','Иванов', 55, 79098565644, 'Kursk'),
+    ('Сергей','Сергеев', 45, 79032566544, 'Elec'),
+    ('Дмитрий','Дмитриев', 25, 79023566544, 'Moscow'),
+    ('Семен','Иванов', 75, 7901366544, 'Kursk');
+
+select name, surname
+from netology.persons
+where citi_of_living = 'Moscow';
+
+select * from netology.persons
+where age > 27
+order by age desc;
